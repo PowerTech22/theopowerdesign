@@ -388,4 +388,4 @@ body{overflow-wrap:break-word}
 /* print */
 @media print{.site-header,.wa-float,.cursor,.hero-bg,.marquee{display:none}body{background:#fff;color:#000}p{color:#333}}
 @media(max-width:600px){.wa-float{width:50px;height:50px;right:12px}.wa-float svg{width:26px;height:26px}}
-.site-footer{padding-bottom:calc(34px + env(safe-area-inset-bottom))}
+.site-footer{padding-bottom:calc(90px + env(safe-area-inset-bottom))}
