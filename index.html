@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0f14">
+<meta name="color-scheme" content="dark">
+<title>TheoPower - Websites, apps &amp; AI automation</title>
+<meta name="description" content="I design and build on Squarespace, Shopify, Wix, Base44 and Lovable — then automate the busywork so the business runs without you.">
+<meta property="og:title" content="TheoPower - Websites, apps & AI automation">
+<meta property="og:description" content="Websites, apps and AI automation — designed and built by one person who stays until it works.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="home">
+
+<main>
+  <section class="hero">
+    <div class="hero-bg"><img data-img="hero" alt="A clean desk with a laptop, notebook and coffee"></div>
+    <div class="wrap">
+      <span class="eyebrow dot">Available for new projects</span>
+      <h1>Websites, apps &amp; AI <br>that do the <em>heavy lifting</em>.</h1>
+      <p class="lead">I design and build on Squarespace, Shopify, Wix, Base44 and Lovable — then automate the busywork so the business runs without you.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-ghost" href="#work">Explore my work</a>
+        <a class="btn btn-link" href="contact.html">Tell me about your project</a>
+      </div>
+    </div>
+    <div class="scroll-cue">SCROLL</div>
+  </section>
+
+  <div class="wrap">
+    <div class="intro reveal">
+      <p class="big">Independent designer &amp; developer.<br><span style="color:var(--muted)">Building worldwide, one project at a time.</span></p>
+      <small>DESIGN · BUILD · AUTOMATE</small>
+    </div>
+    <p class="marquee-label">TOOLS I WORK WITH</p>
+  </div>
+  <div class="marquee" aria-label="Tools I work with">
+    <div class="marquee-track" id="marquee"></div>
+  </div>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <span class="eyebrow">Design · Build · Automate</span>
+          <h2>Two ways I help a business grow.</h2>
+        </div>
+        <div>
+          <p>Websites and apps built on the platform that fits your business, and the repetitive work behind them automated. Each one has a case study behind it.</p>
+          <a class="btn btn-link" href="contact.html" style="margin-top:18px">Start a project</a>
+        </div>
+      </div>
+      <div class="services">
+        <a class="service-row reveal" href="website-development.html">
+          <span class="num">01</span><h3>Websites &amp; apps</h3>
+          <p>Fast, considered sites and apps — from a brochure site you can edit yourself to a custom app with logins and payments.</p>
+          <div class="thumb"><img data-img="service" alt="" loading="lazy"></div>
+          <span class="more">READ THE CASE STUDY →</span>
+        </a>
+        <a class="service-row reveal" href="ai-automation.html">
+          <span class="num">02</span><h3>AI automation</h3>
+          <p>Lead intake, follow-ups, reporting and content — mapped, automated and documented so routine work runs without you.</p>
+          <div class="thumb"><img data-img="service" alt="" loading="lazy" style="object-position:center"></div>
+          <span class="more">READ THE CASE STUDY →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:20px">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><span class="eyebrow">How it works</span><h2>A short, honest process.</h2></div>
+        <p>No account managers, no handoff to a junior team. You work with the person doing the work.</p>
+      </div>
+      <div class="process reveal">
+        <div><span class="num">01</span><h3>Conversation</h3><p>A 30-minute call. I want to understand the business, the deadlines and the budget before I recommend anything.</p></div>
+        <div><span class="num">02</span><h3>Scope &amp; timeline</h3><p>A short written plan: what's included, what isn't, what it costs and when it lands. No surprises later.</p></div>
+        <div><span class="num">03</span><h3>Design &amp; build</h3><p>Design first, then build. You see progress weekly and can comment on anything, at any stage.</p></div>
+        <div><span class="num">04</span><h3>Launch &amp; support</h3><p>Launch, handover and a walkthrough. I stay reachable for the month after — and beyond, if you want me on retainer.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:20px">
+    <div class="wrap split">
+      <div class="portrait reveal"><img data-img="portrait" alt="Portrait of Theo, designer and developer"></div>
+      <div class="reveal">
+        <span class="eyebrow">About</span>
+        <h2>One person, the whole stack.</h2>
+        <p>I'm Theo. I build the website and connect the tools behind it — so you're not managing two different freelancers who never speak to each other.</p>
+        <p>Most of my work starts with a business that has outgrown its site. Sometimes the fix is a rebuild on Shopify or Squarespace. Sometimes it's an app on Base44, or a single automation that saves a day a week. I'll tell you which one you actually need.</p>
+        <a class="btn btn-link" href="about.html" style="margin-top:26px">More about how I work</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap reveal">
+      <span class="eyebrow">Next step</span>
+      <h2>Let's build something that <em>earns its keep</em>.</h2>
+      <p>Tell me what you're working on. I'll reply with an honest read on what it needs — even if the answer is that you don't need me yet.</p>
+      <a class="btn btn-primary" href="contact.html">Start a project ↗</a>
+    </div>
+  </section>
+</main>
+
+<script src="config.js"></script>
+<script>
+  const tools = ["SQUARESPACE","SHOPIFY","WIX","BASE44","LOVABLE","OPENAI","MAKE","N8N","ZAPIER","HUBSPOT","META","NOTION"];
+  document.getElementById("marquee").innerHTML = [...tools, ...tools].map(t => `<span>${t}</span>`).join("");
+</script>
+<script src="site.js"></script>
+</body>
+</html>

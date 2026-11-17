@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0f14">
+<meta name="color-scheme" content="dark">
+<title>Contact | TheoPower</title>
+<meta name="description" content="Tell me about the project. I reply within one working day.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="contact">
+<main>
+  <section class="page-hero" style="padding-bottom:40px">
+    <div class="wrap">
+      <span class="eyebrow">Contact</span>
+      <h1>Tell me about the <em>project</em>.</h1>
+      <p class="lead">A few sentences is plenty. What are you building, what's getting in the way, and when would you like it live?</p>
+    </div>
+  </section>
+
+  <section style="padding-top:20px">
+    <div class="wrap form-grid">
+      <form id="contact-form" novalidate>
+        <p hidden><label>Leave this empty <input name="_honey" tabindex="-1" autocomplete="off"></label></p>
+        <div class="field"><label for="name">Name</label><input class="input" id="name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email" required autocomplete="email"></div>
+        <div class="field">
+          <span class="label">What do you need?</span>
+          <div class="chips">
+            <input type="radio" name="service" id="s1" value="Website or app" checked><label for="s1">Website or app</label>
+            <input type="radio" name="service" id="s2" value="AI automation"><label for="s2">AI automation</label>
+            <input type="radio" name="service" id="s4" value="Not sure yet"><label for="s4">Not sure yet</label>
+          </div>
+        </div>
+        <div class="field">
+          <span class="label">Budget (optional)</span>
+          <div class="chips">
+            <input type="radio" name="budget" id="b0" value="Prefer not to say" checked><label for="b0">Prefer not to say</label>
+            <input type="radio" name="budget" id="b1" value="Under $2k"><label for="b1">Under $2k</label>
+            <input type="radio" name="budget" id="b2" value="$2k – $5k"><label for="b2">$2k – $5k</label>
+            <input type="radio" name="budget" id="b3" value="$5k – $15k"><label for="b3">$5k – $15k</label>
+            <input type="radio" name="budget" id="b4" value="$15k+"><label for="b4">$15k+</label>
+            <input type="radio" name="budget" id="b5" value="Let's talk"><label for="b5">Let's talk</label>
+          </div>
+        </div>
+        <div class="field"><label for="message">The project</label><textarea class="input" id="message" name="message" required></textarea></div>
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit" id="send-btn">Send message</button>
+          <button class="btn btn-ghost" type="button" id="wa-btn">Send on WhatsApp</button>
+          <a class="btn btn-link" data-booking target="_blank" rel="noopener">Book a 30-min call</a>
+        </div>
+        <div class="notice" id="notice" role="status"></div>
+      </form>
+
+      <aside class="aside reveal">
+        <h3>What happens next</h3>
+        <ol class="steps">
+          <li><span class="num">01</span><p>I read every message myself, usually the same day.</p></li>
+          <li><span class="num">02</span><p>You get an honest reply within one working day — including whether I'm the right fit.</p></li>
+          <li><span class="num">03</span><p>If it's a match, we book a 30-minute call and I send a short written scope.</p></li>
+        </ol>
+        <p class="note">Not sure which service fits? Choose “Not sure yet” and describe it — I'll tell you what I'd do.</p>
+        <p class="note">Already have an invoice? <a href="pay.html" style="color:var(--amber)">Pay it here →</a></p>
+      </aside>
+    </div>
+  </section>
+</main>
+<script src="config.js"></script>
+<script src="site.js"></script>
+<script>
+(() => {
+  const S = window.SITE, f = document.getElementById("contact-form"), n = document.getElementById("notice");
+  const show = (msg, ok) => { n.textContent = msg; n.className = "notice show " + (ok ? "ok" : "err"); };
+  const data = () => Object.fromEntries(new FormData(f));
+  const valid = () => {
+    const d = data();
+    if (!d.name.trim() || !/^\S+@\S+\.\S+$/.test(d.email) || !d.message.trim()) { show("Please add your name, a valid email and a few words about the project.", false); return null; }
+    return d;
+  };
+  const waText = (d) => `Hi Theo, I'm ${d.name} (${d.email}).\nI need: ${d.service}\nBudget: ${d.budget}\n\n${d.message}`;
+
+  const waBtn = document.getElementById("wa-btn");
+  if (!isSet(S.whatsapp)) waBtn.remove();
+  waBtn.addEventListener("click", () => { const d = valid(); if (d) window.open(waLink(waText(d)), "_blank"); });
+
+  f.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const d = valid(); if (!d) return;
+    const btn = document.getElementById("send-btn"); btn.disabled = true; btn.textContent = "Sending…";
+    try {
+      if (d._honey) return; delete d._honey;
+      await sendForm(d, `New project enquiry — ${d.service}`);
+      f.reset(); show("Thanks — your message is in. I'll reply within one working day.", true);
+    } catch (err) {
+      show("Something went wrong sending that. Try WhatsApp or book a call instead.", false);
+    } finally { btn.disabled = false; btn.textContent = "Send message"; }
+  });
+})();
+</script>
+</body>
+</html>
