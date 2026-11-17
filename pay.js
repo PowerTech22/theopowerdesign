@@ -62,7 +62,8 @@
   async function notify(subject, d, extra = "") {
     try {
       await sendForm({ name: d.name, email: d.email, reference: d.reference,
-        amount: fmt(d.amount, d.currency), method: subject, details: extra }, `Payment notice — ${subject} — ${d.reference}`);
+        amount: fmt(d.amount, d.currency), method: subject, details: extra }, `Payment notice — ${subject} — ${d.reference}`,
+        `Hi ${d.name},\n\nThanks — I've received your payment notice for ${d.reference} (${fmt(d.amount, d.currency)} via ${subject.replace(/ — client says payment sent$/, "")}).\n\nI'll confirm as soon as it's matched, usually within one working day.${extra ? "\n\n" + extra : ""}\n\n— Theo\nTheoPower`);
     } catch {}
   }
   const waBtn = (text) => { const l = waLink(text); return l ? ` <a class="btn btn-ghost" style="margin-top:12px" href="${l}" target="_blank" rel="noopener">Send confirmation on WhatsApp</a>` : ""; };

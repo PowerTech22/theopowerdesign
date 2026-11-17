@@ -14,6 +14,9 @@ window.SITE = {
   whatsapp: "2347030252724",
 
   // Contact + payment-notice forms email this address via FormSubmit (no key).
+  // Optional: after activating, paste the random ID FormSubmit emails you here
+  // to hide your address from the page source, e.g. formsubmitId: "a1b2c3...".
+  formsubmitId: "",
 
   payments: {
     // ---------- 1. PAYSTACK (cards, bank, USSD, transfer) ----------

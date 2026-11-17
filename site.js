@@ -14,10 +14,13 @@
 
   // Send a form to your Gmail via FormSubmit (free, no key). The very first
   // submission sends an activation email to your inbox — click it once.
-  window.sendForm = async (data, subject = "New message from your website") => {
-    const res = await fetch(`https://formsubmit.co/ajax/${S.email}`, {
+  // `autoresponse` is emailed to the sender (their "email" field) as a confirmation.
+  window.sendForm = async (data, subject = "New message from your website", autoresponse = "") => {
+    const body = { _subject: subject, _template: "table", _captcha: "false", ...data };
+    if (autoresponse) body._autoresponse = autoresponse;
+    const res = await fetch(`https://formsubmit.co/ajax/${S.formsubmitId || S.email}`, {
       method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({ _subject: subject, _template: "table", _captcha: "false", ...data })
+      body: JSON.stringify(body)
     });
     const j = await res.json().catch(() => ({}));
     if (!res.ok || String(j.success) === "false") throw new Error(j.message || "Form failed");
