@@ -59,11 +59,11 @@
     return d;
   }
 
-  async function notify(subject, d, extra = "") {
+  function notify(subject, d, extra = "", thanks = {}) {
     try {
-      await sendForm({ name: d.name, email: d.email, reference: d.reference,
+      postForm({ name: d.name, email: d.email, reference: d.reference,
         amount: fmt(d.amount, d.currency), method: subject, details: extra }, `Payment notice — ${subject} — ${d.reference}`,
-        `Hi ${d.name},\n\nThanks — I've received your payment notice for ${d.reference} (${fmt(d.amount, d.currency)} via ${subject.replace(/ — client says payment sent$/, "")}).\n\nI'll confirm as soon as it's matched, usually within one working day.${extra ? "\n\n" + extra : ""}\n\n— Theo\nTheoPower`);
+        `Hi ${d.name},\n\nThanks — I've received your payment notice for ${d.reference} (${fmt(d.amount, d.currency)} via ${subject.replace(/ — client says payment sent$/, "")}).\n\nI'll confirm as soon as it's matched, usually within one working day.${extra ? "\n\n" + extra : ""}\n\n— Theo\nTheoPower`, { name: d.name, ...thanks });
     } catch {}
   }
   const waBtn = (text) => { const l = waLink(text); return l ? ` <a class="btn btn-ghost" style="margin-top:12px" href="${l}" target="_blank" rel="noopener">Send confirmation on WhatsApp</a>` : ""; };
@@ -86,7 +86,8 @@
       callback: function (res) {
         show(`<b>Payment received — thank you, ${esc(d.name)}.</b><br>Paystack reference: <b>${esc(res.reference)}</b>. A receipt is on its way to ${esc(d.email)}.` +
           waBtn(`Hi Theo, I've paid ${fmt(d.amount, d.currency)} by Paystack for ${d.reference}. Paystack ref: ${res.reference}`), true);
-        notify("Paystack payment received", d, `Paystack ref: ${res.reference}`);
+        setTimeout(() => notify("Paystack payment received", d, `Paystack ref: ${res.reference}`,
+          { t: "paid", ref: d.reference, wa: `Hi Theo, I've paid ${fmt(d.amount, d.currency)} by Paystack for ${d.reference}. Paystack ref: ${res.reference}` }), 1800);
       },
       onClose: function () { show("Checkout closed — no payment was taken. You can try again any time.", false); }
     });
@@ -98,8 +99,8 @@
     const d = valid(); if (!d) return;
     const via = b.dataset.sent;
     const text = `Hi Theo, I've sent ${fmt(d.amount, d.currency)} by ${via} for ${d.reference}. Name: ${d.name}, email: ${d.email}.`;
-    notify(`${via} — client says payment sent`, d);
-    show(`<b>Thanks, ${esc(d.name)}.</b> I'll confirm once the ${esc(via.toLowerCase())} lands — usually within one working day.` + waBtn(text), true);
+    show(`<b>Thanks, ${esc(d.name)}.</b> Sending your payment notice…`, true);
+    notify(`${via} — client says payment sent`, d, "", { t: "pay", ref: d.reference, via, wa: text });
   }));
 
   // Prefill from link: ?ref=&amount=&currency=&method=&name=&email=

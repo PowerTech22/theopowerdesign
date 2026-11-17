@@ -87,16 +87,11 @@
   f.addEventListener("submit", async (e) => {
     e.preventDefault();
     const d = valid(); if (!d) return;
+    if (d._honey) return; delete d._honey;
     const btn = document.getElementById("send-btn"); btn.disabled = true; btn.textContent = "Sending…";
-    show("Sending your message — this can take up to a minute, please keep this page open.", true);
-    try {
-      if (d._honey) return; delete d._honey;
-      await sendForm(d, `New project enquiry — ${d.service}`,
-        `Hi ${d.name},\n\nThanks for getting in touch with TheoPower — your message has reached me. I read every message myself and you'll get an honest reply within one working day.\n\nWhat you sent:\nService: ${d.service}\nBudget: ${d.budget}\n\n${d.message}\n\nIf it's urgent, message me on WhatsApp: https://wa.me/${S.whatsapp}\n\n— Theo\nTheoPower · Websites, apps & AI automation`);
-      f.reset(); show("Thanks — your message is in. I'll reply within one working day.", true);
-    } catch (err) {
-      show("Your message didn't send — please tap “Send on WhatsApp” below, or email powertheo.design@gmail.com.", false);
-    } finally { btn.disabled = false; btn.textContent = "Send message"; }
+    postForm(d, `New project enquiry — ${d.service}`,
+        `Hi ${d.name},\n\nThanks for getting in touch with TheoPower — your message has reached me. I read every message myself and you'll get an honest reply within one working day.\n\nWhat you sent:\nService: ${d.service}\nBudget: ${d.budget}\n\n${d.message}\n\nIf it's urgent, message me on WhatsApp: https://wa.me/${S.whatsapp}\n\n— Theo\nTheoPower · Websites, apps & AI automation`,
+      { t: "contact", name: d.name });
   });
 })();
 </script>

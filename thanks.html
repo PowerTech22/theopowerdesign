@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#060709">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex">
+<title>Thank you | TheoPower</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .thanks{min-height:100svh;display:grid;place-items:center;padding:140px 0 80px}
+  .thanks .cta-box{max-width:760px;margin:0 auto;text-align:center}
+  .check{width:64px;height:64px;margin:0 auto 22px;border-radius:50%;display:grid;place-items:center;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.4);color:var(--ok)}
+  .check svg{width:30px;height:30px}
+  .thanks h1{font-size:clamp(36px,5vw,60px);margin:14px 0 18px}
+  .thanks p{max-width:540px;margin:0 auto 14px}
+  .thanks .small{font-size:14px;color:var(--faint)}
+  .thanks .btns{margin-top:30px}
+</style>
+</head>
+<body data-page="thanks">
+<main class="thanks">
+  <div class="wrap">
+    <div class="cta-box">
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <span class="eyebrow" id="eyebrow">Message received</span>
+      <h1 id="title">Thanks — it's <em>in.</em></h1>
+      <p id="body">Your message has reached me. I read every message myself and you'll get an honest reply within one working day.</p>
+      <p class="small">A confirmation email is on its way to you — check your spam or promotions folder if you don't see it.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="index.html">Back to home →</a>
+        <a class="btn btn-ghost" id="wa" target="_blank" rel="noopener" hidden>Message me on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="config.js"></script>
+<script src="site.js"></script>
+<script>
+(() => {
+  const q = new URLSearchParams(location.search);
+  const name = q.get("name"), t = q.get("t"), ref = q.get("ref"), via = q.get("via");
+  const $ = (id) => document.getElementById(id);
+  const first = name ? esc(name.split(" ")[0]) : "";
+  if (t === "pay") {
+    $("eyebrow").textContent = "Payment notice received";
+    $("title").innerHTML = `Thanks${first ? ", " + first : ""} — <em>noted.</em>`;
+    $("body").textContent = `I've got your payment notice${ref ? " for " + ref : ""}${via ? " (" + via + ")" : ""}. I'll confirm as soon as it lands — usually within one working day.`;
+  } else if (t === "paid") {
+    $("eyebrow").textContent = "Payment received";
+    $("title").innerHTML = `Payment <em>received.</em>`;
+    $("body").textContent = `Thank you${first ? ", " + name.split(" ")[0] : ""}. Your Paystack payment${ref ? " for " + ref : ""} went through and Paystack has emailed your receipt. The work moves to the next stage.`;
+  } else if (first) {
+    $("title").innerHTML = `Thanks, ${first} — it's <em>in.</em>`;
+  }
+  const wa = waLink(q.get("wa") || "Hi Theo, I just sent you a message through your website.");
+  if (wa) { $("wa").href = wa; $("wa").hidden = false; }
+})();
+</script>
+</body>
+</html>

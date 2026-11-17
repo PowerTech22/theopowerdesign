@@ -28,6 +28,23 @@
     if (!res.ok || String(j.success) === "false") throw new Error(j.message || "Form failed");
   };
 
+  // Standard (non-AJAX) FormSubmit post: the visitor passes FormSubmit's quick
+  // "I'm not a robot" check, then lands on thanks.html. This mode is required for
+  // the confirmation email (_autoresponse) to reach the sender.
+  window.postForm = (data, subject, autoresponse, thanks = {}) => {
+    const f = document.createElement("form");
+    f.method = "POST"; f.action = `https://formsubmit.co/${S.formsubmitId || S.email}`; f.style.display = "none";
+    const next = new URL(root + "thanks.html", location.href);
+    Object.entries(thanks).forEach(([k, v]) => v && next.searchParams.set(k, v));
+    const fields = { ...data, _subject: subject, _template: "table", _next: next.href, _autoresponse: autoresponse || "" };
+    Object.entries(fields).forEach(([k, v]) => {
+      if (v === "" || v == null) return;
+      const i = document.createElement(k === "_autoresponse" || k === "message" ? "textarea" : "input");
+      i.name = k; i.value = String(v); f.append(i);
+    });
+    document.body.append(f); f.submit();
+  };
+
   const link = (href, label, key) =>
     `<a href="${root}${href}"${page === key ? ' class="active" aria-current="page"' : ""}>${label}</a>`;
 
