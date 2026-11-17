@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#060709">
 <meta name="color-scheme" content="dark">
 <title>Contact | TheoPower</title>
-<meta name="description" content="Tell me about the project. I reply within one working day.">
+<meta name="description" content="Tell me about the project. I reply in less than 3 hours.">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="contact">
@@ -56,8 +56,8 @@
       <aside class="aside reveal">
         <h3>What happens next</h3>
         <ol class="steps">
-          <li><span class="num">01</span><p>I read every message myself, usually the same day.</p></li>
-          <li><span class="num">02</span><p>You get an honest reply within one working day — including whether I'm the right fit.</p></li>
+          <li><span class="num">01</span><p>I read every message myself, as soon as it lands.</p></li>
+          <li><span class="num">02</span><p>You get an honest reply in less than 3 hours — including whether I'm the right fit.</p></li>
           <li><span class="num">03</span><p>If it's a match, we book a 30-minute call and I send a short written scope.</p></li>
         </ol>
         <p class="note">Not sure which service fits? Choose “Not sure yet” and describe it — I'll tell you what I'd do.</p>
@@ -90,7 +90,7 @@
     if (d._honey) return; delete d._honey;
     const btn = document.getElementById("send-btn"); btn.disabled = true; btn.textContent = "Sending…";
     postForm(d, `New project enquiry — ${d.service}`,
-        `Hi ${d.name},\n\nThanks for getting in touch with TheoPower — your message has reached me. I read every message myself and you'll get an honest reply within one working day.\n\nWhat you sent:\nService: ${d.service}\nBudget: ${d.budget}\n\n${d.message}\n\nIf it's urgent, message me on WhatsApp: https://wa.me/${S.whatsapp}\n\n— Theo\nTheoPower · Websites, apps & AI automation`,
+        `Hi ${d.name},\n\nThanks for getting in touch with TheoPower — your message has reached me. I read every message myself and I'll reply in less than 3 hours.\n\nWhat you sent:\nService: ${d.service}\nBudget: ${d.budget}\n\n${d.message}\n\nIf it's urgent, message me on WhatsApp: https://wa.me/${S.whatsapp}\n\n— Theo\nTheoPower · Websites, apps & AI automation`,
       { t: "contact", name: d.name });
   });
 })();
