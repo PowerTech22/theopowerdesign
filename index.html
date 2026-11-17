@@ -3,75 +3,155 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b0f14">
+<meta name="theme-color" content="#060709">
 <meta name="color-scheme" content="dark">
 <title>TheoPower - Websites, apps &amp; AI automation</title>
 <meta name="description" content="I design and build on Squarespace, Shopify, Wix, Base44 and Lovable — then automate the busywork so the business runs without you.">
 <meta property="og:title" content="TheoPower - Websites, apps & AI automation">
 <meta property="og:description" content="Websites, apps and AI automation — designed and built by one person who stays until it works.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="home">
 
 <main>
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg"><img data-img="hero" alt="A clean desk with a laptop, notebook and coffee"></div>
-    <div class="wrap">
-      <span class="eyebrow dot">Available for new projects</span>
-      <h1>Websites, apps &amp; AI <br>that do the <em>heavy lifting</em>.</h1>
-      <p class="lead">I design and build on Squarespace, Shopify, Wix, Base44 and Lovable — then automate the busywork so the business runs without you.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-ghost" href="#work">Explore my work</a>
-        <a class="btn btn-link" href="contact.html">Tell me about your project</a>
-      </div>
-    </div>
-    <div class="scroll-cue">SCROLL</div>
-  </section>
-
-  <div class="wrap">
-    <div class="intro reveal">
-      <p class="big">Independent designer &amp; developer.<br><span style="color:var(--muted)">Building worldwide, one project at a time.</span></p>
-      <small>DESIGN · BUILD · AUTOMATE</small>
-    </div>
-    <p class="marquee-label">TOOLS I WORK WITH</p>
-  </div>
-  <div class="marquee" aria-label="Tools I work with">
-    <div class="marquee-track" id="marquee"></div>
-  </div>
-
-  <section id="work">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div>
-          <span class="eyebrow">Design · Build · Automate</span>
-          <h2>Two ways I help a business grow.</h2>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow dot">Available for new projects</span>
+        <h1>Websites, apps &amp; AI that do the <em>heavy lifting.</em></h1>
+        <p class="lead">I design and build on Squarespace, Shopify, Wix, Base44 and Lovable — then automate the busywork so the business runs without you.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="contact.html">Start a project <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#work">See live work</a>
         </div>
-        <div>
-          <p>Websites and apps built on the platform that fits your business, and the repetitive work behind them automated. Each one has a case study behind it.</p>
-          <a class="btn btn-link" href="contact.html" style="margin-top:18px">Start a project</a>
+        <div class="hero-meta">
+          <span>One person, the whole stack</span>
+          <span>Reply within one working day</span>
+          <span>Building worldwide</span>
         </div>
       </div>
-      <div class="services">
-        <a class="service-row reveal" href="website-development.html">
-          <span class="num">01</span><h3>Websites &amp; apps</h3>
-          <p>Fast, considered sites and apps — from a brochure site you can edit yourself to a custom app with logins and payments.</p>
-          <div class="thumb"><img data-img="service" alt="" loading="lazy"></div>
-          <span class="more">READ THE CASE STUDY →</span>
-        </a>
-        <a class="service-row reveal" href="ai-automation.html">
-          <span class="num">02</span><h3>AI automation</h3>
-          <p>Lead intake, follow-ups, reporting and content — mapped, automated and documented so routine work runs without you.</p>
-          <div class="thumb"><img data-img="service" alt="" loading="lazy" style="object-position:center"></div>
-          <span class="more">READ THE CASE STUDY →</span>
-        </a>
+
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="float-chip c1">deploy · success</div>
+        <div class="terminal">
+          <div class="term-bar"><i></i><i></i><i></i><b>theo@power ~ build</b></div>
+          <div class="term-body" id="term"></div>
+        </div>
+        <div class="float-chip c2">automation · running</div>
       </div>
     </div>
   </section>
 
-  <section style="padding-top:20px">
+  <!-- TOOLS -->
+  <div class="logos">
+    <p class="marquee-label">Tools I build with</p>
+    <div class="marquee"><div class="marquee-track" id="marquee"></div></div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div><span class="eyebrow">How it works</span><h2>A short, honest process.</h2></div>
+        <div><span class="eyebrow">Design · Build · Automate</span><h2>Two ways I help a business <em>grow.</em></h2></div>
+        <p>Websites and apps built on the platform that fits your business, and the repetitive work behind them automated. Each one has a case study behind it.</p>
+      </div>
+
+      <div class="bento-grid">
+        <a class="bento big reveal" href="website-development.html">
+          <div class="b-copy">
+            <span class="num">01 — Websites &amp; apps</span>
+            <h3>Sites and apps that turn visitors into clients.</h3>
+            <p>Fast, considered sites and apps — from a brochure site you can edit yourself to a custom app with logins and payments.</p>
+            <span class="b-link">Read the case study →</span>
+          </div>
+          <div class="b-visual">
+            <div class="browser">
+              <div class="bar"><i></i><i></i><i></i><span>yourbusiness.com</span></div>
+              <div class="pg">
+                <div><div class="sk h"></div><div class="sk l"></div><div class="sk l" style="width:80%"></div><div class="sk l" style="width:60%"></div><div class="sk b"></div></div>
+                <div class="sk img"></div>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a class="bento big reveal" href="ai-automation.html">
+          <div class="b-copy">
+            <span class="num">02 — AI automation</span>
+            <h3>Routine work that runs without you.</h3>
+            <p>Lead intake, follow-ups, reporting and content — mapped, automated and documented so routine work runs without you.</p>
+            <span class="b-link">Read the case study →</span>
+          </div>
+          <div class="b-visual">
+            <div class="flow">
+              <div class="flow-stack"><div class="node">Form</div><div class="node">Instagram</div><div class="node">Email</div></div>
+              <div class="wire"></div>
+              <div class="node ai">AI<small>sort + draft</small></div>
+              <div class="wire w2"></div>
+              <div class="node">CRM<small>logged</small></div>
+              <div class="wire w3"></div>
+              <div class="node">You<small>approve</small></div>
+            </div>
+          </div>
+        </a>
+
+        <div class="bento small reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3>Clarity over cleverness</h3>
+          <p>If a visitor can't tell what you do and what to do next within five seconds, no amount of styling will save it.</p>
+        </div>
+        <div class="bento small reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h7"/></svg></div>
+          <h3>Built to be handed over</h3>
+          <p>Everything I deliver is documented and editable by you. You should never need me to change a price or swap a photo.</p>
+        </div>
+        <div class="bento small reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div>
+          <h3>Measure what matters</h3>
+          <p>Enquiries, bookings, hours saved. Three numbers that change decisions beat twenty that look busy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE WORK -->
+  <section id="work" class="divider">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><span class="eyebrow">Live work</span><h2>Sites I've designed <em>and built.</em></h2></div>
+        <p>A selection of live client sites across Wix and Shopify — service businesses, a language academy, a wedding film studio and an e-commerce store. Every link opens the real thing.</p>
+      </div>
+      <div class="sites" id="sites"></div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="divider">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><span class="eyebrow">Case studies</span><h2>How the work <em>gets done.</em></h2></div>
+        <p>The brief, the approach and what was built — step by step.</p>
+      </div>
+      <div class="cases">
+        <a class="card case reveal" href="website-development.html">
+          <div class="cimg"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1400&q=80&auto=format&fit=crop" alt="" loading="lazy"></div>
+          <div class="info"><span class="num">Website &amp; app development</span><h3>A booking-first website for Lumen Dental</h3><p>Rebuilt around one job — getting a new patient into the calendar in under a minute.</p><span class="b-link">Read the case study →</span></div>
+        </a>
+        <a class="card case reveal" href="ai-automation.html">
+          <div class="cimg"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80&auto=format&fit=crop" alt="" loading="lazy"></div>
+          <div class="info"><span class="num">AI automation</span><h3>Lead intake on autopilot for Northwind Studio</h3><p>One pipeline that reads every lead, sorts it, and drafts the first reply.</p><span class="b-link">Read the case study →</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="divider">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><span class="eyebrow">How it works</span><h2>A short, <em>honest</em> process.</h2></div>
         <p>No account managers, no handoff to a junior team. You work with the person doing the work.</p>
       </div>
       <div class="process reveal">
@@ -83,33 +163,102 @@
     </div>
   </section>
 
-  <section style="padding-top:20px">
+  <!-- ABOUT -->
+  <section class="divider">
     <div class="wrap split">
-      <div class="portrait reveal"><img data-img="portrait" alt="Portrait of Theo, designer and developer"></div>
+      <div class="portrait reveal"><img data-img="portrait" alt="Portrait of Theo, designer and developer"><span class="ptag">Theo · available</span></div>
       <div class="reveal">
         <span class="eyebrow">About</span>
-        <h2>One person, the whole stack.</h2>
+        <h2>One person, <em>the whole stack.</em></h2>
         <p>I'm Theo. I build the website and connect the tools behind it — so you're not managing two different freelancers who never speak to each other.</p>
         <p>Most of my work starts with a business that has outgrown its site. Sometimes the fix is a rebuild on Shopify or Squarespace. Sometimes it's an app on Base44, or a single automation that saves a day a week. I'll tell you which one you actually need.</p>
-        <a class="btn btn-link" href="about.html" style="margin-top:26px">More about how I work</a>
+        <div class="btns"><a class="btn btn-ghost" href="about.html">More about how I work</a><a class="btn btn-link" data-booking target="_blank" rel="noopener">Book a 30-min call →</a></div>
       </div>
     </div>
   </section>
 
-  <section class="cta">
-    <div class="wrap reveal">
-      <span class="eyebrow">Next step</span>
-      <h2>Let's build something that <em>earns its keep</em>.</h2>
-      <p>Tell me what you're working on. I'll reply with an honest read on what it needs — even if the answer is that you don't need me yet.</p>
-      <a class="btn btn-primary" href="contact.html">Start a project ↗</a>
+  <!-- STACK -->
+  <section class="divider">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><span class="eyebrow">Toolkit</span><h2>The stack.</h2></div><p>The right platform for the job — not the one I happen to like.</p></div>
+      <div class="stack">
+        <div class="card reveal"><h4>Platforms</h4><div class="chips-list"><span>Squarespace</span><span>Shopify</span><span>Wix</span><span>Base44</span><span>Lovable</span></div></div>
+        <div class="card reveal"><h4>Automation</h4><div class="chips-list"><span>OpenAI</span><span>Make</span><span>n8n</span><span>Zapier</span><span>HubSpot</span></div></div>
+        <div class="card reveal"><h4>Craft</h4><div class="chips-list"><span>Figma</span><span>Photoshop</span><span>CapCut</span><span>Notion</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" style="padding-top:20px">
+    <div class="wrap">
+      <div class="cta-box reveal">
+        <span class="eyebrow">Next step</span>
+        <h2>Let's build something that <em>earns its keep.</em></h2>
+        <p>Tell me what you're working on. I'll reply with an honest read on what it needs — even if the answer is that you don't need me yet.</p>
+        <div class="btns"><a class="btn btn-primary" href="contact.html">Start a project →</a><a class="btn btn-ghost" data-booking target="_blank" rel="noopener">Book a call</a></div>
+      </div>
     </div>
   </section>
 </main>
 
 <script src="config.js"></script>
 <script>
-  const tools = ["SQUARESPACE","SHOPIFY","WIX","BASE44","LOVABLE","OPENAI","MAKE","N8N","ZAPIER","HUBSPOT","META","NOTION"];
+  // Tools marquee
+  const tools = ["Squarespace","Shopify","Wix","Base44","Lovable","OpenAI","Make","n8n","Zapier","HubSpot","Meta","Notion"];
   document.getElementById("marquee").innerHTML = [...tools, ...tools].map(t => `<span>${t}</span>`).join("");
+
+  // Live client sites (real links) with live screenshots
+  const SITES = [
+    ["", "Langs Akademi", "Language academy site with programme pages, tutor proof and course enquiries.", "https://www.langsakademi.com/", "langsakademi.com"],
+    ["WIX", "LivinTheLifeCo", "Wedding film studio — featured films, the process, and an availability enquiry flow.", "https://www.livinthelifeco.com/", "livinthelifeco.com"],
+    ["SHOPIFY", "Live Your Faith", "Shopify storefront with product pages, bundles and a campaign landing page.", "https://liveyourfaith.store/", "liveyourfaith.store"],
+    ["WIX", "Elite Security Solutions", "Private security company site — service offering, case studies and quote requests.", "https://martinsezekiel123.wixsite.com/my-site-41", "martinsezekiel123.wixsite.com"],
+    ["WIX", "Truly PYour Nail Lounge", "Nail salon site with a full service menu, pricing cards and booking enquiries.", "https://martinsezekiel123.wixsite.com/my-site-30", "martinsezekiel123.wixsite.com"],
+    ["WIX", "AI Booking Agency", "AI receptionist landing page — offer, demo booking form and client results.", "https://bryson52.wixsite.com/my-site-43", "bryson52.wixsite.com"]
+  ];
+  const shot = (u) => `https://s0.wp.com/mshots/v1/${encodeURIComponent(u)}?w=1200&h=750`;
+  document.getElementById("sites").innerHTML = SITES.map(([badge, name, desc, href, host]) => `
+    <a class="card site-card reveal" href="${href}" target="_blank" rel="noopener">
+      <div class="shot"><span class="initial">${name[0]}</span><img src="${shot(href)}" alt="Screenshot of ${name}" loading="lazy" onerror="this.remove()"></div>
+      <div class="info">
+        <div class="top"><span class="num">Live site</span>${badge ? `<span class="badge">${badge}</span>` : ""}</div>
+        <h3>${name}</h3><p>${desc}</p><span class="url">${host} ↗</span>
+      </div></a>`).join("");
+
+  // Terminal build animation
+  (() => {
+    const el = document.getElementById("term");
+    const L = [
+      ["cmd", "theo new-project --client \"your business\""],
+      ["out", "<span class='dim'>  reading the brief…</span>"],
+      ["out", "<span class='ok'>  ✓</span> scope &amp; timeline      <span class='dim d'>written, no surprises</span>"],
+      ["out", "<span class='ok'>  ✓</span> design system         <span class='dim d'>figma → code</span>"],
+      ["out", "<span class='ok'>  ✓</span> website / app         <span class='dim d'>shopify · wix · base44</span>"],
+      ["out", "<span class='ok'>  ✓</span> logins + payments     <span class='dim d'>wired up</span>"],
+      ["out", "<span class='ok'>  ✓</span> automations           <span class='dim d'>leads → ai → crm</span>"],
+      ["out", "<span class='ok'>  ✓</span> handover              <span class='dim d'>documented, yours</span>"],
+      ["cmd", "deploy --prod"],
+      ["out", "<span class='hl'>  ▲ live.</span> <span class='dim d'>built by one person, start to finish.</span>"]
+    ];
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const caret = "<span class='caret'></span>";
+    let html = "", i = 0;
+    const render = (extra = "") => (el.innerHTML = html + extra + caret);
+    const next = () => {
+      if (i >= L.length) { render(); setTimeout(() => { html = ""; i = 0; next(); }, 6000); return; }
+      const [type, text] = L[i++];
+      if (type === "out") { html += text + "\n"; render(); setTimeout(next, reduce ? 0 : 260); return; }
+      let n = 0; const prefix = "<span class='p'>$</span> ";
+      const tick = () => {
+        if (n <= text.length) { render(prefix + text.slice(0, n++).replace(/</g, "&lt;")); setTimeout(tick, reduce ? 0 : 28 + Math.random() * 40); }
+        else { html += prefix + text.replace(/</g, "&lt;") + "\n"; setTimeout(next, 380); }
+      };
+      tick();
+    };
+    if (reduce) { L.forEach(([t, x]) => (html += (t === "cmd" ? "<span class='p'>$</span> " + x : x) + "\n")); render(); }
+    else setTimeout(next, 600);
+  })();
 </script>
 <script src="site.js"></script>
 </body>

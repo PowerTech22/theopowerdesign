@@ -38,7 +38,7 @@
         ${link("contact.html", "Contact", "contact")}
         ${link("pay.html", "Pay", "pay")}
       </nav>
-      <a class="btn btn-primary" href="${root}contact.html">Start a project <span aria-hidden="true">↗</span></a>
+      <a class="btn btn-primary" href="${root}contact.html">Start a project <span aria-hidden="true">→</span></a>
       <button class="menu-btn" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </div>`;
   document.body.prepend(header);
@@ -85,8 +85,9 @@
       </div>
       <div class="foot-bottom">
         <span>© ${new Date().getFullYear()} ${S.legalName}. All rights reserved.</span>
-        <span>Squarespace · Shopify · Wix · Base44 · Lovable</span>
+        <span>Designed &amp; hand-coded by Theo · Building worldwide</span>
       </div>
+      <div class="foot-word" aria-hidden="true">TheoPower</div>
     </div>`;
   document.body.append(footer);
 
@@ -98,6 +99,18 @@
     a.innerHTML = `<svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm8.4-18.2C18.2 1.3 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.6-8.4z"/></svg>`;
     document.body.append(a);
   }
+
+  // Scroll progress bar
+  const bar = document.createElement("div"); bar.className = "progress"; document.body.append(bar);
+  const prog = () => { const h = document.documentElement.scrollHeight - innerHeight; bar.style.transform = `scaleX(${h > 0 ? scrollY / h : 0})`; };
+  addEventListener("scroll", prog, { passive: true }); prog();
+
+  // Spotlight that follows the mouse on cards
+  document.addEventListener("pointermove", (e) => {
+    const c = e.target.closest(".card,.bento"); if (!c) return;
+    const r = c.getBoundingClientRect();
+    c.style.setProperty("--mx", `${e.clientX - r.left}px`); c.style.setProperty("--my", `${e.clientY - r.top}px`);
+  }, { passive: true });
 
   // Reveal on scroll
   const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12 });
