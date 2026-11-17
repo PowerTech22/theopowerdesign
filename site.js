@@ -18,10 +18,12 @@
   window.sendForm = async (data, subject = "New message from your website", autoresponse = "") => {
     const body = { _subject: subject, _template: "table", _captcha: "false", ...data };
     if (autoresponse) body._autoresponse = autoresponse;
+    const ctrl = new AbortController(); const timer = setTimeout(() => ctrl.abort(), 120000);
     const res = await fetch(`https://formsubmit.co/ajax/${S.formsubmitId || S.email}`, {
-      method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
+      signal: ctrl.signal, method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify(body)
     });
+    clearTimeout(timer);
     const j = await res.json().catch(() => ({}));
     if (!res.ok || String(j.success) === "false") throw new Error(j.message || "Form failed");
   };

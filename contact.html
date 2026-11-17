@@ -88,6 +88,7 @@
     e.preventDefault();
     const d = valid(); if (!d) return;
     const btn = document.getElementById("send-btn"); btn.disabled = true; btn.textContent = "Sending…";
+    show("Sending your message — this can take up to a minute, please keep this page open.", true);
     try {
       if (d._honey) return; delete d._honey;
       await sendForm(d, `New project enquiry — ${d.service}`,
