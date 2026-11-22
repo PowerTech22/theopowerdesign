@@ -425,3 +425,8 @@ cite{font:500 12px var(--mono);font-style:normal;letter-spacing:.1em;color:var(-
 .hero-visual .c1{top:-17px;right:auto;left:36px}
 @media(max-width:600px){.term-body .d{display:none}.term-body{min-height:250px}.hero-visual .c1{left:16px}}
 .page-hero a.eyebrow::before{display:none}
+.reviews{display:grid;grid-template-columns:1.4fr .6fr;gap:40px;align-items:center;padding:44px}
+.reviews h2{margin:16px 0 14px}
+.rv-cta{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.stars{font-size:26px;letter-spacing:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media(max-width:820px){.reviews{grid-template-columns:1fr;padding:28px;gap:24px}}
