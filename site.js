@@ -8,6 +8,13 @@
   window.waLink = (text) => isSet(S.whatsapp) ? `https://wa.me/${S.whatsapp}?text=${encodeURIComponent(text)}` : "";
   window.esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
+  // Favicon (matches the TP logo mark)
+  if (!document.querySelector('link[rel="icon"]')) {
+    const ico = document.createElement("link"); ico.rel = "icon"; ico.type = "image/svg+xml";
+    ico.href = "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60a5fa"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="#0b0d12"/><rect x="1.5" y="1.5" width="61" height="61" rx="14.5" fill="none" stroke="url(#g)" stroke-width="3"/><text x="32" y="43" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="800" text-anchor="middle" fill="url(#g)" letter-spacing="-2">TP</text></svg>`);
+    document.head.append(ico);
+  }
+
   // Fill <img data-img="hero"> etc. from config
   document.querySelectorAll("[data-img]").forEach((i) => (i.src = S.img[i.dataset.img]));
   document.querySelectorAll("[data-booking]").forEach((a) => (a.href = S.bookingUrl));
@@ -53,7 +60,7 @@
   header.className = "site-header";
   header.innerHTML = `
     <div class="wrap nav">
-      <a class="logo" href="${root}index.html"><img src="${S.img.logo}" alt="${S.brand} logo">${S.brand}</a>
+      <a class="logo" href="${root}index.html" aria-label="TheoPower home"><span class="logo-mark" aria-hidden="true"><b>T</b><i>P</i></span><span class="logo-text">Theo<span>Power</span></span></a>
       <nav class="nav-links" aria-label="Main">
         ${link("index.html#work", "Work", "work")}
         ${link("about.html", "About", "about")}
@@ -83,7 +90,7 @@
     <div class="wrap">
       <div class="foot-grid">
         <div>
-          <a class="logo" href="${root}index.html"><img src="${S.img.logo}" alt="">${S.brand}</a>
+          <a class="logo" href="${root}index.html" aria-label="TheoPower home"><span class="logo-mark" aria-hidden="true"><b>T</b><i>P</i></span><span class="logo-text">Theo<span>Power</span></span></a>
           <p class="blurb">Websites, apps and AI automation — designed and built by one person who stays until it works.</p>
           <div class="foot-ctas">
             <a class="btn btn-primary" href="${root}contact.html">Start a project</a>
