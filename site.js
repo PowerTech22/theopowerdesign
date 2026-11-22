@@ -60,7 +60,7 @@
   header.className = "site-header";
   header.innerHTML = `
     <div class="wrap nav">
-      <a class="logo" href="${root}index.html" aria-label="TheoPower home"><span class="logo-mark" aria-hidden="true"><b>T</b><i>P</i></span><span class="logo-text">Theo<span>Power</span></span></a>
+      <a class="logo" href="${root}index.html" aria-label="TheoPower home"><span class="logo-mark" aria-hidden="true"><svg viewBox="10 14 44 36"><defs><linearGradient id="tpg1" gradientUnits="userSpaceOnUse" x1="13" y1="17" x2="51" y2="47"><stop offset="0" stop-color="#60a5fa"/><stop offset=".6" stop-color="#22d3ee"/><stop offset="1" stop-color="#a5f3fc"/></linearGradient></defs><g fill="url(#tpg1)"><path d="M13 17.5h22.5v6H27.2V47h-6.4V23.5H13z"/><path d="M31.5 17.5h9.2c6.2 0 10.3 3.9 10.3 9.6s-4.1 9.7-10.3 9.7h-2.8V47h-6.4zM37.9 23.3v7.7h2.6c2.5 0 4-1.5 4-3.85s-1.5-3.85-4-3.85z"/></g></svg></span><span class="logo-text">Theo<span>Power</span></span></a>
       <nav class="nav-links" aria-label="Main">
         ${link("index.html#work", "Work", "work")}
         ${link("about.html", "About", "about")}
@@ -90,7 +90,7 @@
     <div class="wrap">
       <div class="foot-grid">
         <div>
-          <a class="logo" href="${root}index.html" aria-label="TheoPower home"><span class="logo-mark" aria-hidden="true"><b>T</b><i>P</i></span><span class="logo-text">Theo<span>Power</span></span></a>
+          <a class="logo" href="${root}index.html" aria-label="TheoPower home"><span class="logo-mark" aria-hidden="true"><svg viewBox="10 14 44 36"><defs><linearGradient id="tpg2" gradientUnits="userSpaceOnUse" x1="13" y1="17" x2="51" y2="47"><stop offset="0" stop-color="#60a5fa"/><stop offset=".6" stop-color="#22d3ee"/><stop offset="1" stop-color="#a5f3fc"/></linearGradient></defs><g fill="url(#tpg2)"><path d="M13 17.5h22.5v6H27.2V47h-6.4V23.5H13z"/><path d="M31.5 17.5h9.2c6.2 0 10.3 3.9 10.3 9.6s-4.1 9.7-10.3 9.7h-2.8V47h-6.4zM37.9 23.3v7.7h2.6c2.5 0 4-1.5 4-3.85s-1.5-3.85-4-3.85z"/></g></svg></span><span class="logo-text">Theo<span>Power</span></span></a>
           <p class="blurb">Websites, apps and AI automation — designed and built by one person who stays until it works.</p>
           <div class="foot-ctas">
             <a class="btn btn-primary" href="${root}contact.html">Start a project</a>
