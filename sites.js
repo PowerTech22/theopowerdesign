@@ -12,6 +12,11 @@ window.SITES = [
     ["SQUARESPACE", "Yarza Twins", "London & Paris design studio — services, case studies, shop and bilingual pages.", "https://yarzatwins.com/", "yarzatwins.com"],
     ["SQUARESPACE", "Andamiro", "Brooklyn Korean restaurant — menu, delivery ordering, press and FAQ.", "https://andamirobk.com/", "andamirobk.com"],
     ["SQUARESPACE", "Sam Frésquez", "Artist portfolio — projects, CV and info pages.", "https://samfresquez.com/", "samfresquez.com"],
+    ["BASE44", "SomniaAI", "AI dream journal — log dreams, AI symbol and emotion analysis, dream calendar and archive.", "https://somnia-ai-f545e9d5.base44.app/", "somnia-ai.base44.app"],
+    ["BASE44", "NeuroPath", "Habit app for logging wins, interrupting negative patterns and tracking progress.", "https://neuro-path-10759e56.base44.app/", "neuro-path.base44.app"],
+    ["BASE44", "Spark! Career Hub", "AI career co-pilot — resume builder, cover letters, interview simulator and job matching.", "https://pathfinder-dca8ad5b.base44.app/", "pathfinder.base44.app"],
+    ["BASE44", "NutriSync", "AI meal tracker — food logging, nutrition insights, recipes, meal plans and shopping lists.", "https://nutri-beast-126588eb.base44.app/", "nutri-beast.base44.app"],
+    ["BASE44", "Bento", "Personal knowledge and task organizer — bento-grid dashboard, notes, projects and AI auto-linking.", "https://bentoinfo.base44.app/", "bentoinfo.base44.app"],
     ["", "Langs Akademi", "Language academy site with programme pages, tutor proof and course enquiries.", "https://www.langsakademi.com/", "langsakademi.com"],
     ["WIX", "LivinTheLifeCo", "Wedding film studio — featured films, the process, and an availability enquiry flow.", "https://www.livinthelifeco.com/", "livinthelifeco.com"],
     ["SHOPIFY", "Live Your Faith", "Shopify storefront with product pages, bundles and a campaign landing page.", "https://liveyourfaith.store/", "liveyourfaith.store"],
@@ -39,11 +44,11 @@ window.renderPortfolio = (root, limit = 6) => {
       <a class="card site-card" href="${href}" target="_blank" rel="noopener">
         <div class="shot"><span class="initial">${name[0]}</span><img src="${shot(href)}" alt="Screenshot of ${name}" loading="lazy" onerror="this.remove()"></div>
         <div class="info">
-          <div class="top"><span class="num">Live site</span>${badge ? `<span class="badge">${badge}</span>` : ""}</div>
+          <div class="top"><span class="num">${badge === "BASE44" ? "Live app" : "Live site"}</span>${badge ? `<span class="badge">${badge}</span>` : ""}</div>
           <h3>${name}</h3><p>${desc}</p><span class="url">${host} ↗</span>
         </div></a>`).join("");
     more.parentElement.hidden = list.length <= limit;
-    more.textContent = expanded ? "Show fewer" : `Show all ${list.length} sites`;
+    more.textContent = expanded ? "Show fewer" : `Show all ${list.length} projects`;
   };
   bar.addEventListener("click", (e) => {
     const b = e.target.closest("button"); if (!b) return;

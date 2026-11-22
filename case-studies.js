@@ -17,8 +17,8 @@
         ["Proof in the right places", "Reviews sit next to each treatment rather than hidden on a separate page, and real studio photography replaced the stock library shots."]
       ],
       sites: {
-        head: "Sites I've designed and built.",
-        text: "Live client sites across Squarespace, Wix and Shopify — restaurants, coffee, wellness, hospitality, studios and e-commerce. Every link opens the real thing."
+        head: "Sites & apps I've designed and built.",
+        text: "Live client sites on Squarespace, Wix and Shopify, plus AI-powered web apps built on Base44. Every link opens the real thing."
       },
       tags: ["SQUARESPACE", "CUSTOM CSS", "GOOGLE ANALYTICS", "SEARCH CONSOLE"],
       built: ["Full site design system in Figma before a line of code", "Squarespace build with custom CSS and scheduling integration", "Service and pricing pages structured for local search", "Google Business Profile clean-up and review flow", "Analytics events on every booking step", "A one-hour walkthrough and written handover so the team can edit it"],
