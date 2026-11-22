@@ -133,9 +133,7 @@
         <div><span class="eyebrow">Live work</span><h2>Sites I've designed <em>and built.</em></h2></div>
         <p>Live client sites across Squarespace, Wix and Shopify — restaurants, coffee, wellness, hospitality, studios and e-commerce. Every link opens the real thing.</p>
       </div>
-      <div class="filters reveal" id="filters" role="tablist" aria-label="Filter by platform"></div>
-      <div class="sites" id="sites"></div>
-      <div class="more-wrap"><button class="btn btn-ghost" id="more-sites" type="button">Show all sites</button></div>
+      <div class="portfolio" id="portfolio"></div>
     </div>
   </section>
 
@@ -237,58 +235,14 @@
 </main>
 
 <script src="config.js"></script>
+<script src="sites.js"></script>
 <script>
   // Tools marquee
   const tools = ["Squarespace","Shopify","Wix","Base44","Lovable","OpenAI","Make","n8n","Zapier","HubSpot","Meta","Notion"];
   document.getElementById("marquee").innerHTML = [...tools, ...tools].map(t => `<span>${t}</span>`).join("");
 
   // Live client sites (real links) with live screenshots
-  const SITES = [
-    ["SQUARESPACE", "A Bathhouse", "Bathhouse and spa site — treatments, booking and visit details.", "https://abathhouse.com/", "abathhouse.com"],
-    ["SQUARESPACE", "Hôtel Weekend", "Travel magazine and concept store — boutique hotel guides, city guides and shop.", "https://hotel-weekend.com/", "hotel-weekend.com"],
-    ["SQUARESPACE", "Frankly Good Coffee", "Coffee roaster store — blends, subscriptions, gift cards and wholesale enquiries.", "https://franklygoodcoffee.com/", "franklygoodcoffee.com"],
-    ["SQUARESPACE", "Breathpod", "Breathwork app and corporate wellbeing — free trial, courses, events and journal.", "https://breathpod.com/", "breathpod.com"],
-    ["SQUARESPACE", "Little Ripper", "LA restaurant and wine bar — reservations, online ordering, menus and events.", "https://littleripper.la/", "littleripper.la"],
-    ["SQUARESPACE", "Myrtle Village Green", "Brooklyn community garden — visiting hours, events, composting and membership.", "https://myrtlegreen.org/", "myrtlegreen.org"],
-    ["SQUARESPACE", "Hello-World", "Design studio site — portfolio, studio info, shop and newsletter.", "https://hello-world.studio/", "hello-world.studio"],
-    ["SQUARESPACE", "Yarza Twins", "London & Paris design studio — services, case studies, shop and bilingual pages.", "https://yarzatwins.com/", "yarzatwins.com"],
-    ["SQUARESPACE", "Andamiro", "Brooklyn Korean restaurant — menu, delivery ordering, press and FAQ.", "https://andamirobk.com/", "andamirobk.com"],
-    ["SQUARESPACE", "Sam Frésquez", "Artist portfolio — projects, CV and info pages.", "https://samfresquez.com/", "samfresquez.com"],
-    ["", "Langs Akademi", "Language academy site with programme pages, tutor proof and course enquiries.", "https://www.langsakademi.com/", "langsakademi.com"],
-    ["WIX", "LivinTheLifeCo", "Wedding film studio — featured films, the process, and an availability enquiry flow.", "https://www.livinthelifeco.com/", "livinthelifeco.com"],
-    ["SHOPIFY", "Live Your Faith", "Shopify storefront with product pages, bundles and a campaign landing page.", "https://liveyourfaith.store/", "liveyourfaith.store"],
-    ["WIX", "Elite Security Solutions", "Private security company site — service offering, case studies and quote requests.", "https://martinsezekiel123.wixsite.com/my-site-41", "martinsezekiel123.wixsite.com"],
-    ["WIX", "Truly PYour Nail Lounge", "Nail salon site with a full service menu, pricing cards and booking enquiries.", "https://martinsezekiel123.wixsite.com/my-site-30", "martinsezekiel123.wixsite.com"],
-    ["WIX", "AI Booking Agency", "AI receptionist landing page — offer, demo booking form and client results.", "https://bryson52.wixsite.com/my-site-43", "bryson52.wixsite.com"]
-  ];
-  const shot = (u) => `https://s0.wp.com/mshots/v1/${encodeURIComponent(u)}?w=1200&h=750`;
-  const grid = document.getElementById("sites"), moreBtn = document.getElementById("more-sites");
-  const LIMIT = 6; let filter = "ALL", expanded = false;
-  const cats = ["ALL", ...new Set(SITES.map(x => x[0]).filter(Boolean))];
-  const label = (c) => c === "ALL" ? "All" : c[0] + c.slice(1).toLowerCase();
-  document.getElementById("filters").innerHTML = cats.map(c =>
-    `<button type="button" role="tab" data-f="${c}" aria-selected="${c === "ALL"}">${label(c)} <span>${c === "ALL" ? SITES.length : SITES.filter(x => x[0] === c).length}</span></button>`).join("");
-  function draw() {
-    const list = SITES.filter(x => filter === "ALL" || x[0] === filter);
-    const shown = expanded ? list : list.slice(0, LIMIT);
-    grid.innerHTML = shown.map(([badge, name, desc, href, host]) => `
-      <a class="card site-card in" href="${href}" target="_blank" rel="noopener">
-        <div class="shot"><span class="initial">${name[0]}</span><img src="${shot(href)}" alt="Screenshot of ${name}" loading="lazy" onerror="this.remove()"></div>
-        <div class="info">
-          <div class="top"><span class="num">Live site</span>${badge ? `<span class="badge">${badge}</span>` : ""}</div>
-          <h3>${name}</h3><p>${desc}</p><span class="url">${host} ↗</span>
-        </div></a>`).join("");
-    moreBtn.hidden = list.length <= LIMIT;
-    moreBtn.textContent = expanded ? "Show fewer" : `Show all ${list.length} sites`;
-  }
-  document.getElementById("filters").addEventListener("click", (e) => {
-    const b = e.target.closest("button"); if (!b) return;
-    filter = b.dataset.f; expanded = false;
-    document.querySelectorAll("#filters button").forEach(x => x.setAttribute("aria-selected", x === b));
-    draw();
-  });
-  moreBtn.addEventListener("click", () => { expanded = !expanded; draw(); if (!expanded) document.getElementById("work").scrollIntoView({ behavior: "smooth" }); });
-  draw();
+  renderPortfolio(document.getElementById("portfolio"));
 
   // Terminal build animation
   (() => {

@@ -18,16 +18,7 @@
       ],
       sites: {
         head: "Sites I've designed and built.",
-        text: "A selection of live client sites across Wix and Shopify — service businesses, a language academy, a wedding film studio and an e-commerce store. Every link opens the real thing.",
-        items: [
-          ["", "Langs Akademi", "Language academy site with programme pages, tutor proof and course enquiries.", "https://www.langsakademi.com/", "langsakademi.com"],
-          ["WIX", "LivinTheLifeCo", "Wedding film studio — featured films, the process, and an availability enquiry flow.", "https://www.livinthelifeco.com/", "livinthelifeco.com"],
-          ["SHOPIFY", "Live Your Faith", "Shopify storefront with product pages, bundles and a campaign landing page.", "https://liveyourfaith.store/", "liveyourfaith.store"],
-          ["WIX", "Elite Security Solutions", "Private security company site — service offering, case studies and quote requests.", "https://martinsezekiel123.wixsite.com/my-site-41", "martinsezekiel123.wixsite.com"],
-          ["WIX", "Truly PYour Nail Lounge", "Nail salon site with a full service menu, pricing cards and booking enquiries.", "https://martinsezekiel123.wixsite.com/my-site-30", "martinsezekiel123.wixsite.com"],
-          ["WIX", "AI Booking Agency", "AI receptionist landing page — offer, demo booking form and client results.", "https://bryson52.wixsite.com/my-site-43", "bryson52.wixsite.com"],
-          ["WIX", "WixMaster Studio", "Agency site with a project gallery, video testimonials and a services breakdown.", "https://martinsezekiel123.wixsite.com/my-site-16", "martinsezekiel123.wixsite.com"]
-        ]
+        text: "Live client sites across Squarespace, Wix and Shopify — restaurants, coffee, wellness, hospitality, studios and e-commerce. Every link opens the real thing."
       },
       tags: ["SQUARESPACE", "CUSTOM CSS", "GOOGLE ANALYTICS", "SEARCH CONSOLE"],
       built: ["Full site design system in Figma before a line of code", "Squarespace build with custom CSS and scheduling integration", "Service and pricing pages structured for local search", "Google Business Profile clean-up and review flow", "Analytics events on every booking step", "A one-hour walkthrough and written handover so the team can edit it"],
@@ -93,10 +84,7 @@
 
     ${s.sites ? `<section class="divider"><div class="wrap">
       <div class="sec-head reveal"><div><span class="eyebrow">Live sites</span><h2>${s.sites.head}</h2></div><p>${s.sites.text}</p></div>
-      <div class="sites">${s.sites.items.map(([badge, name, desc, href, host], i) => `
-        <a class="card site-card reveal" href="${href}" target="_blank" rel="noopener">
-          <div class="top"><span class="num">${n2(i)}</span>${badge ? `<span class="badge">${badge}</span>` : ""}</div>
-          <h3>${name}</h3><p>${desc}</p><span class="url">${host} ↗</span></a>`).join("")}</div>
+      <div class="portfolio" id="portfolio"></div>
     </div></section>` : ""}
 
     ${s.gallery ? `<section class="divider"><div class="wrap">
@@ -130,6 +118,8 @@
     </div></section>
 
     <div class="lightbox" id="lightbox"><button type="button" aria-label="Close">✕</button><img alt=""></div>`;
+
+  const pf = document.getElementById("portfolio"); if (pf && window.renderPortfolio) renderPortfolio(pf);
 
   const lb = document.getElementById("lightbox");
   document.querySelectorAll("[data-full]").forEach((b) => b.addEventListener("click", () => { lb.querySelector("img").src = b.dataset.full; lb.classList.add("show"); }));
